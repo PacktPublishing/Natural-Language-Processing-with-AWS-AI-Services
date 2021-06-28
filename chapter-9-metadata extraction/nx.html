@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 800;
+            height: 600;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#b4e1a2", "group": "event", "id": "ev0", "label": "CORPORATE_MERGER", "shape": "box", "size": 10, "tag": "CORPORATE_MERGER"}, {"color": "#9e0142", "group": "entity_group", "id": "gr4", "label": "DATE", "shape": "dot", "size": 6, "tag": "DATE"}, {"color": "#fee796", "group": "entity_group", "id": "gr1", "label": "STOCK_CODE", "shape": "dot", "size": 6, "tag": "STOCK_CODE"}, {"color": "#fee796", "group": "entity_group", "id": "gr3", "label": "STOCK_CODE", "shape": "dot", "size": 6, "tag": "STOCK_CODE"}, {"color": "#f57446", "group": "entity_group", "id": "gr2", "label": "ORGANIZATION", "shape": "dot", "size": 6, "tag": "ORGANIZATION"}, {"color": "#ebf7a0", "group": "event", "id": "ev1", "label": "CORPORATE_ACQUISITION", "shape": "box", "size": 10, "tag": "CORPORATE_ACQUISITION"}, {"color": "#e75948", "group": "entity_group", "id": "gr5", "label": "MONETARY_VALUE", "shape": "dot", "size": 6, "tag": "MONETARY_VALUE"}, {"id": "gr0", "label": "gr0", "shape": "dot", "size": 10}, {"color": "#9e0142", "group": "entity_group", "id": "gr8", "label": "DATE", "shape": "dot", "size": 6, "tag": "DATE"}, {"color": "#ebf7a0", "group": "trigger", "id": "ev1-tr1", "label": "all", "shape": "diamond", "size": 4, "tag": "CORPORATE_ACQUISITION"}, {"color": "#f8fcb5", "group": "event", "id": "ev2", "label": "EMPLOYMENT", "shape": "box", "size": 10, "tag": "EMPLOYMENT"}, {"color": "#fa9656", "group": "entity_group", "id": "gr6", "label": "PERSON", "shape": "dot", "size": 6, "tag": "PERSON"}, {"color": "#fdb668", "group": "entity_group", "id": "gr7", "label": "PERSON_TITLE", "shape": "dot", "size": 6, "tag": "PERSON_TITLE"}, {"color": "#b4e1a2", "group": "event", "id": "ev3", "label": "CORPORATE_MERGER", "shape": "box", "size": 10, "tag": "CORPORATE_MERGER"}, {"color": "#b4e1a2", "group": "trigger", "id": "ev3-tr0", "label": "partnership", "shape": "diamond", "size": 4, "tag": "CORPORATE_MERGER"}, {"color": "#b4e1a2", "group": "trigger", "id": "ev3-tr1", "label": "merger", "shape": "diamond", "size": 4, "tag": "CORPORATE_MERGER"}, {"color": "#f8fcb5", "group": "event", "id": "ev4", "label": "EMPLOYMENT", "shape": "box", "size": 10, "tag": "EMPLOYMENT"}, {"color": "#fa9656", "group": "entity_group", "id": "gr9", "label": "PERSON", "shape": "dot", "size": 6, "tag": "PERSON"}, {"color": "#fdb668", "group": "entity_group", "id": "gr10", "label": "PERSON_TITLE", "shape": "dot", "size": 6, "tag": "PERSON_TITLE"}, {"color": "#f8fcb5", "group": "trigger", "id": "ev4-tr0", "label": "remain", "shape": "diamond", "size": 4, "tag": "EMPLOYMENT"}, {"color": "#ebf7a0", "group": "event", "id": "ev5", "label": "CORPORATE_ACQUISITION", "shape": "box", "size": 10, "tag": "CORPORATE_ACQUISITION"}, {"color": "#9e0142", "group": "entity_group", "id": "gr11", "label": "DATE", "shape": "dot", "size": 6, "tag": "DATE"}, {"color": "#ebf7a0", "group": "trigger", "id": "ev5-tr1", "label": "transaction", "shape": "diamond", "size": 4, "tag": "CORPORATE_ACQUISITION"}, {"color": "#fee796", "group": "entity", "id": "gr1-en1", "label": "NASDAQ:AMZN", "shape": "square", "size": 4, "tag": "STOCK_CODE"}, {"color": "#f57446", "group": "entity", "id": "gr2-en0", "label": "Whole Foods Market, Inc.", "shape": "square", "size": 4, "tag": "ORGANIZATION"}, {"color": "#f57446", "group": "entity", "id": "gr2-en1", "label": "Whole Foods Marketfor", "shape": "square", "size": 4, "tag": "ORGANIZATION"}, {"color": "#f57446", "group": "entity", "id": "gr2-en25", "label": "Whole FoodsMarket", "shape": "square", "size": 4, "tag": "ORGANIZATION"}, {"color": "#fa9656", "group": "entity", "id": "gr2-en26", "label": "customers", "shape": "square", "size": 4, "tag": "PERSON"}, {"color": "#fee796", "group": "entity", "id": "gr3-en1", "label": "NASDAQ:WFM", "shape": "square", "size": 4, "tag": "STOCK_CODE"}, {"color": "#9e0142", "group": "entity", "id": "gr4-en1", "label": "today", "shape": "square", "size": 4, "tag": "DATE"}, {"color": "#e75948", "group": "entity", "id": "gr5-en0", "label": "$42", "shape": "square", "size": 4, "tag": "MONETARY_VALUE"}, {"color": "#e75948", "group": "entity", "id": "gr5-en1", "label": "$13.7 billion", "shape": "square", "size": 4, "tag": "MONETARY_VALUE"}, {"color": "#fdb668", "group": "entity", "id": "gr7-en0", "label": "co-founder", "shape": "square", "size": 4, "tag": "PERSON_TITLE"}, {"color": "#fdb668", "group": "entity", "id": "gr7-en2", "label": "CEO", "shape": "square", "size": 4, "tag": "PERSON_TITLE"}, {"color": "#9e0142", "group": "entity", "id": "gr8-en0", "label": "during the second half of 2017.Whole", "shape": "square", "size": 4, "tag": "DATE"}, {"color": "#fa9656", "group": "entity", "id": "gr9-en1", "label": "John Mackey", "shape": "square", "size": 4, "tag": "PERSON"}, {"color": "#fdb668", "group": "entity", "id": "gr10-en0", "label": "CEOof", "shape": "square", "size": 4, "tag": "PERSON_TITLE"}, {"color": "#9e0142", "group": "entity", "id": "gr11-en0", "label": "during the secondhalf of 2017", "shape": "square", "size": 4, "tag": "DATE"}]);
+        edges = new vis.DataSet([{"color": "grey", "from": "ev0", "label": "DATE", "to": "gr4", "weight": 99.4679}, {"color": "grey", "from": "ev0", "label": "PARTICIPANT", "to": "gr1", "weight": 98.89829999999999}, {"color": "grey", "from": "ev0", "label": "PARTICIPANT", "to": "gr3", "weight": 97.5579}, {"color": "grey", "from": "ev0", "label": "PARTICIPANT", "to": "gr2", "weight": 99.9671}, {"color": "grey", "from": "ev1", "label": "AMOUNT", "to": "gr5", "weight": 99.8241}, {"color": "grey", "from": "ev1", "label": "DATE", "to": "gr4", "weight": 99.4679}, {"color": "grey", "from": "ev1", "label": "INVESTEE", "to": "gr2", "weight": 99.9588}, {"color": "grey", "from": "ev1", "label": "INVESTOR", "to": "gr0", "weight": 99.9565}, {"color": "grey", "from": "ev1", "label": "INVESTEE", "to": "gr3", "weight": 97.5579}, {"color": "grey", "from": "ev1", "label": "DATE", "to": "gr8", "weight": 99.42649999999999}, {"color": "grey", "from": "ev1", "label": "", "to": "ev1-tr1", "weight": 99.9974}, {"color": "grey", "from": "ev2", "label": "EMPLOYEE", "to": "gr6", "weight": 99.97789999999999}, {"color": "grey", "from": "ev2", "label": "EMPLOYEE_TITLE", "to": "gr7", "weight": 99.839}, {"color": "grey", "from": "ev2", "label": "EMPLOYER", "to": "gr2", "weight": 99.9786}, {"color": "grey", "from": "ev3", "label": "PARTICIPANT", "to": "gr2", "weight": 99.9633}, {"color": "grey", "from": "ev3", "label": "", "to": "ev3-tr0", "weight": 100.0}, {"color": "grey", "from": "ev3", "label": "", "to": "ev3-tr1", "weight": 99.9974}, {"color": "grey", "from": "ev4", "label": "EMPLOYEE", "to": "gr9", "weight": 99.9757}, {"color": "grey", "from": "ev4", "label": "EMPLOYEE_TITLE", "to": "gr10", "weight": 99.8287}, {"color": "grey", "from": "ev4", "label": "EMPLOYER", "to": "gr2", "weight": 99.9783}, {"color": "grey", "from": "ev4", "label": "", "to": "ev4-tr0", "weight": 100.0}, {"color": "grey", "from": "ev5", "label": "INVESTEE", "to": "gr2", "weight": 99.96770000000001}, {"color": "grey", "from": "ev5", "label": "DATE", "to": "gr11", "weight": 97.7672}, {"color": "grey", "from": "ev5", "label": "", "to": "ev5-tr1", "weight": 99.9965}, {"color": "grey", "from": "gr1", "label": "", "to": "gr1-en1", "weight": 97.0482}, {"color": "grey", "from": "gr2", "label": "", "to": "gr2-en0", "weight": 100.0}, {"color": "grey", "from": "gr2", "label": "", "to": "gr2-en1", "weight": 94.0198}, {"color": "grey", "from": "gr2", "label": "", "to": "gr2-en25", "weight": 95.2064}, {"color": "grey", "from": "gr2", "label": "", "to": "gr2-en26", "weight": 59.162400000000005}, {"color": "grey", "from": "gr3", "label": "", "to": "gr3-en1", "weight": 96.7623}, {"color": "grey", "from": "gr4", "label": "", "to": "gr4-en1", "weight": 86.7346}, {"color": "grey", "from": "gr5", "label": "", "to": "gr5-en0", "weight": 100.0}, {"color": "grey", "from": "gr5", "label": "", "to": "gr5-en1", "weight": 87.1696}, {"color": "grey", "from": "gr7", "label": "", "to": "gr7-en0", "weight": 100.0}, {"color": "grey", "from": "gr7", "label": "", "to": "gr7-en2", "weight": 74.8572}, {"color": "grey", "from": "gr8", "label": "", "to": "gr8-en0", "weight": 100.0}, {"color": "grey", "from": "gr9", "label": "", "to": "gr9-en1", "weight": 98.3652}, {"color": "grey", "from": "gr10", "label": "", "to": "gr10-en0", "weight": 100.0}, {"color": "grey", "from": "gr11", "label": "", "to": "gr11-en0", "weight": 100.0}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>

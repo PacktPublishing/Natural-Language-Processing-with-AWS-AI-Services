@@ -1,0 +1,108 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.css" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis-network.min.js"> </script>
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+
+<style type="text/css">
+
+        #mynetwork {
+            width: 800px;
+            height: 600px;
+            background-color: #ffffff;
+            border: 1px solid lightgray;
+            position: relative;
+            float: left;
+        }
+
+        
+
+        
+
+        
+</style>
+
+</head>
+
+<body>
+<div id = "mynetwork"></div>
+
+
+<script type="text/javascript">
+
+    // initialize global variables.
+    var edges;
+    var nodes;
+    var network; 
+    var container;
+    var options, data;
+
+    
+    // This method is responsible for drawing the graph, returns the drawn network
+    function drawGraph() {
+        var container = document.getElementById('mynetwork');
+        
+        
+
+        // parsing and collecting nodes and edges from the python
+        nodes = new vis.DataSet([{"color": "#5956a5", "group": "trigger", "id": "tr0", "label": "CORPORATE_MERGER", "shape": "dot", "size": 9, "tag": "CORPORATE_MERGER"}, {"color": "#4fa9af", "group": "entity", "id": "en4", "label": "today", "shape": "dot", "size": 9, "tag": "DATE"}, {"color": "#fafdb8", "group": "entity", "id": "en1", "label": "NASDAQ:AMZN", "shape": "dot", "size": 9, "tag": "STOCK_CODE"}, {"color": "#fafdb8", "group": "entity", "id": "en3", "label": "NASDAQ:WFM", "shape": "dot", "size": 9, "tag": "STOCK_CODE"}, {"color": "#5e4fa2", "group": "entity", "id": "en2", "label": "Whole Foods Market, Inc.", "shape": "dot", "size": 9, "tag": "ORGANIZATION"}, {"color": "#56b0ad", "group": "trigger", "id": "tr1", "label": "CORPORATE_ACQUISITION", "shape": "dot", "size": 9, "tag": "CORPORATE_ACQUISITION"}, {"color": "#e3534a", "group": "entity", "id": "en5", "label": "$13.7 billion", "shape": "dot", "size": 9, "tag": "MONETARY_VALUE"}, {"id": "en0", "label": "en0", "shape": "dot", "size": 10}, {"color": "#4fa9af", "group": "entity", "id": "en8", "label": "during the second half of 2017.Whole", "shape": "dot", "size": 9, "tag": "DATE"}, {"color": "#82cda5", "group": "trigger", "id": "tr2", "label": "EMPLOYMENT", "shape": "dot", "size": 9, "tag": "EMPLOYMENT"}, {"color": "#8bd0a4", "group": "entity", "id": "en6", "label": "John Mackey", "shape": "dot", "size": 9, "tag": "PERSON"}, {"color": "#7acaa5", "group": "entity", "id": "en7", "label": "co-founder", "shape": "dot", "size": 9, "tag": "PERSON_TITLE"}, {"color": "#5956a5", "group": "trigger", "id": "tr3", "label": "CORPORATE_MERGER", "shape": "dot", "size": 9, "tag": "CORPORATE_MERGER"}, {"color": "#82cda5", "group": "trigger", "id": "tr4", "label": "EMPLOYMENT", "shape": "dot", "size": 9, "tag": "EMPLOYMENT"}, {"color": "#8bd0a4", "group": "entity", "id": "en9", "label": "John Mackey", "shape": "dot", "size": 9, "tag": "PERSON"}, {"color": "#7acaa5", "group": "entity", "id": "en10", "label": "CEOof", "shape": "dot", "size": 9, "tag": "PERSON_TITLE"}, {"color": "#56b0ad", "group": "trigger", "id": "tr5", "label": "CORPORATE_ACQUISITION", "shape": "dot", "size": 6, "tag": "CORPORATE_ACQUISITION"}, {"color": "#4fa9af", "group": "entity", "id": "en11", "label": "during the secondhalf of 2017", "shape": "dot", "size": 9, "tag": "DATE"}]);
+        edges = new vis.DataSet([{"color": "grey", "from": "tr0", "label": "DATE", "to": "en4", "weight": 99.4679}, {"color": "grey", "from": "tr0", "label": "PARTICIPANT", "to": "en1", "weight": 98.89829999999999}, {"color": "grey", "from": "tr0", "label": "PARTICIPANT", "to": "en3", "weight": 97.5579}, {"color": "grey", "from": "tr0", "label": "PARTICIPANT", "to": "en2", "weight": 99.9671}, {"color": "grey", "from": "tr1", "label": "AMOUNT", "to": "en5", "weight": 99.8241}, {"color": "grey", "from": "tr1", "label": "DATE", "to": "en4", "weight": 99.4679}, {"color": "grey", "from": "tr1", "label": "INVESTEE", "to": "en2", "weight": 99.9588}, {"color": "grey", "from": "tr1", "label": "INVESTOR", "to": "en0", "weight": 99.9565}, {"color": "grey", "from": "tr1", "label": "INVESTEE", "to": "en3", "weight": 97.5579}, {"color": "grey", "from": "tr1", "label": "DATE", "to": "en8", "weight": 99.42649999999999}, {"color": "grey", "from": "tr2", "label": "EMPLOYEE", "to": "en6", "weight": 99.97789999999999}, {"color": "grey", "from": "tr2", "label": "EMPLOYEE_TITLE", "to": "en7", "weight": 99.839}, {"color": "grey", "from": "tr2", "label": "EMPLOYER", "to": "en2", "weight": 99.9786}, {"color": "grey", "from": "tr3", "label": "PARTICIPANT", "to": "en2", "weight": 99.9633}, {"color": "grey", "from": "tr4", "label": "EMPLOYEE", "to": "en9", "weight": 99.9757}, {"color": "grey", "from": "tr4", "label": "EMPLOYEE_TITLE", "to": "en10", "weight": 99.8287}, {"color": "grey", "from": "tr4", "label": "EMPLOYER", "to": "en2", "weight": 99.9783}, {"color": "grey", "from": "tr5", "label": "INVESTEE", "to": "en2", "weight": 99.96770000000001}, {"color": "grey", "from": "tr5", "label": "DATE", "to": "en11", "weight": 97.7672}]);
+
+        // adding nodes and edges to the graph
+        data = {nodes: nodes, edges: edges};
+
+        var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": false,
+            "type": "continuous"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+        
+        
+
+        
+
+        network = new vis.Network(container, data, options);
+
+        
+
+
+        
+
+        return network;
+
+    }
+
+    drawGraph();
+
+</script>
+</body>
+</html>
