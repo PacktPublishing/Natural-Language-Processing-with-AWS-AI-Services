@@ -24,34 +24,36 @@
     <table>
     <tr>
         <th>Line Nr</th>
-        <th style="width:500px">Original Entry</th>
+        <th style="width:500px">Detected Text</th>
+        <th style="width:500px">Confidence</th>
         <th>Change Required</th>
-        <th style="width:500px">Corrected Entry</th>
+        <th style="width:500px">Corrected Text</th>
         <th>Comments</th>
     </tr>
     {% for pair in task.input.document %}
 
         <tr>
           <td>{{ pair.linenr }}</td>
-          <td><crowd-text-area name="predicteddoc{{ forloop.index }}" value="{{ pair.origentry }}"></crowd-text-area></td>     
+          <td><crowd-text-area name="predicteddoc{{ pair.linenr }}" value="{{ pair.detectedtext }}"></crowd-text-area></td>
+          <td><crowd-text-area name="confidence{{ pair.linenr }}" value="{{ pair.confidence }}"></crowd-text-area></td>
           <td>
             <p>
-              <input type="radio" id="agree{{ forloop.index }}" name="rating{{ forloop.index }}" value="agree" required>
-              <label for="agree{{ forloop.index }}">Correct</label>
+              <input type="radio" id="agree{{ pair.linenr }}" name="rating{{ pair.linenr }}" value="agree" required>
+              <label for="agree{{ pair.linenr }}">Correct</label>
             </p>
             <p>
-              <input type="radio" id="disagree{{ forloop.index }}" name="rating{{ forloop.index }}" value="disagree" required>
-              <label for="disagree{{ forloop.index }}">Incorrect</label>
+              <input type="radio" id="disagree{{ pair.linenr }}" name="rating{{ pair.linenr }}" value="disagree" required>
+              <label for="disagree{{ pair.linenr }}">Incorrect</label>
             </p>
           </td>
           <td>
             <p>
-            <input style="width:500px" rows="3" type="text" name="correcteddoc{{ forloop.index }}" value="{{pair.origentry}}" required/>
+            <input style="width:500px" rows="3" type="text" name="correcteddoc{{ pair.linenr }}" value="{{pair.detectedtext}}" required/>
             </p>
            </td>
            <td>
             <p>
-            <input style="width:500px" rows="3" type="text" name="Comments{{ forloop.index }}" placeholder="Explain why you changed the value" required/>
+            <input style="width:500px" rows="3" type="text" name="comments{{ pair.linenr }}" placeholder="Explain why you changed the value"/>
             </p>
            </td>
         </tr>
