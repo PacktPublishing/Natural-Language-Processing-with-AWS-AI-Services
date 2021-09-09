@@ -1,0 +1,63 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<style>
+  table, tr, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+  }
+</style>
+
+<crowd-form>
+    <div>
+        <h1>Instructions</h1>
+        <p>Please review the SEC registration form inputs, and make corrections where appropriate. </p>
+    </div>
+   <div>
+      <h3>Original Registration Form - Page 1</h3>
+      <classification-target>
+        <img style="width: 70%; max-height: 40%; margin-bottom: 10px" src="{{ task.input.image | grant_read_access }}"/>        
+      </classification-target>     
+   </div>
+    <br>
+    <h1> Please enter your modifications below </h1>
+    <table>
+    <tr>
+        <th>Line Nr</th>
+        <th style="width:500px">Original Entry</th>
+        <th>Change Required</th>
+        <th style="width:500px">Corrected Entry</th>
+        <th>Comments</th>
+    </tr>
+    {% for pair in task.input.document %}
+
+        <tr>
+          <td>{{ pair.linenr }}</td>
+          <td><crowd-text-area name="predicteddoc{{ forloop.index }}" value="{{ pair.origentry }}"></crowd-text-area></td>     
+          <td>
+            <p>
+              <input type="radio" id="agree{{ forloop.index }}" name="rating{{ forloop.index }}" value="agree" required>
+              <label for="agree{{ forloop.index }}">Correct</label>
+            </p>
+            <p>
+              <input type="radio" id="disagree{{ forloop.index }}" name="rating{{ forloop.index }}" value="disagree" required>
+              <label for="disagree{{ forloop.index }}">Incorrect</label>
+            </p>
+          </td>
+          <td>
+            <p>
+            <input style="width:500px" rows="3" type="text" name="correcteddoc{{ forloop.index }}" value="{{pair.origentry}}" required/>
+            </p>
+           </td>
+           <td>
+            <p>
+            <input style="width:500px" rows="3" type="text" name="Comments{{ forloop.index }}" placeholder="Explain why you changed the value" required/>
+            </p>
+           </td>
+        </tr>
+
+      {% endfor %}
+    </table>
+    <br>
+    <br>
+</crowd-form>
