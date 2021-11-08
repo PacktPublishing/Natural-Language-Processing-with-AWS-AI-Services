@@ -4,7 +4,7 @@
 
 This is the code repository for [Natural Language Processing with AWS AI Services](https://www.packtpub.com/product/natural-language-processing-with-aws-ai-services/9781801812535?utm_source=github&utm_medium=repository&utm_campaign=9781801812535), published by Packt.
 
-**Derive strategic insights from unstructured data with Amazon Textract and Amazon Comprehend	s**
+**Derive strategic insights from unstructured data with Amazon Textract and Amazon Comprehend**
 
 ## What is this book about?
 The book includes Python code examples for Amazon Textract, Amazon Comprehend, and other AWS AI services to build a variety of serverless NLP workflows at scale with little prior machine learning knowledge. Packed with real-life business examples, this book will help you to navigate a day in the life of an AWS AI specialist with ease.	
@@ -49,7 +49,7 @@ With the following software and hardware list you can run all code files present
 | Creating a SageMaker Jupyter Notebook       | Windows, Mac OS X, and Linux (Any  |
 | Creating an Amazon S3 bucket                | Windows, Mac OS X, and Linux (Any  |
 
-We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it]https://static.packt-dn.com/
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it] https://static.packt-dn.com/
 downloads/9781801812535_ColorImages.pdf).
 
 
