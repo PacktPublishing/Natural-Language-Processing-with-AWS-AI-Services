@@ -49,7 +49,8 @@ With the following software and hardware list you can run all code files present
 | Creating a SageMaker Jupyter Notebook       | Windows, Mac OS X, and Linux (Any  |
 | Creating an Amazon S3 bucket                | Windows, Mac OS X, and Linux (Any  |
 
-We also provide a PDF file that has color images of the screenshots/diagrams used in this book [Click here to download it] (https://static.packt-cdn.com/downloads/9781801817950_ColorImages.pdf).
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781801817950_ColorImages.pdf).
+
 
 ### Related products <Other books you may enjoy>
 * Machine Learning with Amazon SageMaker Cookbook [[Packt]](https://www.packtpub.com/product/machine-learning-with-amazon-sagemaker-cookbook/9781800567030?utm_source=github&utm_medium=repository&utm_campaign=9781800567030) [[Amazon]](https://www.amazon.com/dp/1800567030)
