@@ -49,8 +49,7 @@ With the following software and hardware list you can run all code files present
 | Creating a SageMaker Jupyter Notebook       | Windows, Mac OS X, and Linux (Any  |
 | Creating an Amazon S3 bucket                | Windows, Mac OS X, and Linux (Any  |
 
-We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/
-downloads/9781801812535_ColorImages.pdf).
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781801812535_ColorImages.pdf).
 
 The Code in Action videos for this book can be viewed at https://bit.ly/3vPvDkj.
 
