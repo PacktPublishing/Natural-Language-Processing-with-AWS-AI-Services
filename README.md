@@ -1,7 +1,3 @@
-## [Get this title for $10 on Packt's Spring Sale](https://www.packt.com/B17528?utm_source=github&utm_medium=packt-github-repo&utm_campaign=spring_10_dollar_2022)
------
-For a limited period, all eBooks and Videos are only $10. All the practical content you need \- by developers, for developers
-
 # Natural-Language-Processing-with-AWS-AI-Services
 
 <a href="https://www.packtpub.com/product/natural-language-processing-with-aws-ai-services/9781801812535?utm_source=github&utm_medium=repository&utm_campaign=9781801812535"><img src="https://static.packt-cdn.com/products/9781801812535/cover/smaller" alt="Natural Language Processing with AWS AI Services" height="256px" align="right"></a>
