@@ -65,3 +65,7 @@ is a senior AI/ML specialist solutions architect at AWS. She is a highly skilled
 
 **Premkumar Rangarajan**
 is an enterprise solutions architect, specializing in AI/ML at Amazon Web Services. He has 25 years of experience in the IT industry in a variety of roles, including delivery lead, integration specialist, and enterprise architect. He has significant architecture and management experience in delivering large-scale programs across various industries and platforms. He is passionate about helping customers solve ML and AI problems.
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781801812535">https://packt.link/free-ebook/9781801812535 </a> </p>
