@@ -1,3 +1,15 @@
+
+### Get this product for $5
+
+<i>Packt is having its biggest sale of the year. Get this eBook or any other book, video, or course that you like just for $5 each</i>
+
+
+<b><p align='center'>[Buy now](https://packt.link/9781801812535)</p></b>
+
+
+<b><p align='center'>[Buy similar titles for just $5](https://subscription.packtpub.com/search)</p></b>
+
+
 # Natural-Language-Processing-with-AWS-AI-Services
 
 <a href="https://www.packtpub.com/product/natural-language-processing-with-aws-ai-services/9781801812535?utm_source=github&utm_medium=repository&utm_campaign=9781801812535"><img src="https://static.packt-cdn.com/products/9781801812535/cover/smaller" alt="Natural Language Processing with AWS AI Services" height="256px" align="right"></a>
